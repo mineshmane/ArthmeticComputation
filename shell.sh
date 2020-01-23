@@ -12,3 +12,5 @@ read -p "Enter value of c: " c
 
 	addition=$(( $a+$b*$c ))
 	echo $addition
+	multiplication=$(( $a*$b+$c ))
+	echo $multiplication
