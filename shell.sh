@@ -16,3 +16,5 @@ read -p "Enter value of c: " c
 	echo $multiplication
 	division=$(( ($c + $a) / $b ))
 	echo $division
+	modulus=$(( $a % $b + $c ))
+	echo   $modulus 
