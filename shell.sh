@@ -1,6 +1,5 @@
 #!/bin/bash  -x
 echo "Welcome to Arthmetic Computation "
-
 read -p "Enter value of a: " a
 read -p "Enter value of b: " b
 read -p "Enter value of c: " c
@@ -39,5 +38,25 @@ do
     done
 done
   
+# Performing Bubble sort  
+for (( i=0; i<$len; i++ )) 
+do
+      
+    for(( j=i; j<$(( $len-i-1)); j++)) 
+    do
+      
+        if (( ${data[j]} < ${data[$((j+1))]} )) 
+        then
+            # swap 
+            temp=${data[$j]} 
+            data[$j]=${data[$((j+1))]}   
+            data[$((j+1))]=$temp 
+        fi
+    done
+done
+  
+echo "Array in sorted order :"
+echo ${data[*]}
+
 echo "Array in sorted order :"
 echo ${data[*]} 
