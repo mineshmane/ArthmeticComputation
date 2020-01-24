@@ -21,4 +21,5 @@ i=0
 	modulus=$(( $a % $b + $c ))
 	echo   $modulus 
 	data[i++]=$modulus
-	echo "${data[@]}"
+
+	echo "Array of computed itegers:  " "${data[@]}"
