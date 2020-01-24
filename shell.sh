@@ -1,14 +1,13 @@
-#!/bin/bash 
+#!/bin/bash  -x
 echo "Welcome to Arthmetic Computation "
 
 read -p "Enter value of a: " a
 read -p "Enter value of b: " b
 read -p "Enter value of c: " c
-
+i=0;
 [ -z "${a//[0-9]}" ] && [ -n "$a" ] || echo "Sorry integers only"
 [ -z "${b//[0-9]}" ] && [ -n "$b" ] || echo "Sorry integers only"
 [ -z "${c//[0-9]}" ] && [ -n "$c" ] || echo "Sorry integers only"
-i=0
 	addition=$(( $a+$b*$c ))
 	data[i++]=$addition
 	echo $addition
@@ -22,4 +21,23 @@ i=0
 	echo   $modulus 
 	data[i++]=$modulus
 
-	echo "Array of computed itegers:  " "${data[@]}"
+	echo "Array of computed itegers: " "${data[*]}"  
+		len="${#data[@]}"
+echo $len
+# Performing Bubble sort  
+for (( k=0; k<"${#data[@]}"; k++ )) 
+do
+    for(( j=0; j<$len; j++ )) 
+    do
+        if [[ ${data[$j]} -gt ${data[$(($j+1))]} ]]
+        then
+            # swap 
+            temp=${data[$j]} 
+            data[j]=${data[$(($j+1))]}   
+            data[$(($j+1))]=$temp 
+        fi
+    done
+done
+  
+echo "Array in sorted order :"
+echo ${data[*]} 
